@@ -1,40 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: hello
+    name: ulti_khopadi
     labels:
-        app: hello
+        app: ulti_khopadi
 spec:
     replicas: 1
     selector:
       matchLabels:
-        app: hello
+        app: ulti_khopadi
     template:
       metadata:
         labels:
-          app: hello
-          tier: hello
+          app: ulti_khopadi
+          tier: ulti_khopadi
       spec:
         containers:
-        - name: hello
+        - name: ulti_khopadi
           image: atingupta2005/hello:latest
           imagePullPolicy: Always
           ports:
           - containerPort: 5000
-            name: hello
+            name: ulti_khopadi
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-    name: hello
+    name: ulti_khopadi
     labels:
-        app: hello
+        app: ulti_khopadi
 spec:
     ports:
       - port: 5000
         targetPort: 5000
     selector:
-      app: hello
-      tier: hello
+      app: ulti_khopadi
+      tier: ulti_khopadi
     type: LoadBalancer
